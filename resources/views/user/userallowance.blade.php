@@ -18,7 +18,7 @@
                     @foreach ($users as $user)
                     <tr>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->status}}</td>
+                        <td>{{$user->email}}</td>
                         <td>
                             <input type="checkbox" class="userStatus btn" rel="{{$user->id}}" data-toggle="toggle" data-on="Enabled" data-off="Disabled" data-onstyle="success" data-offstyle="danger" @if ($user->status==1)
                             checked
