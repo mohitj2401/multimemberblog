@@ -51,7 +51,10 @@ class BlogController extends Controller
     }
     public function store(Request $request)
     {
-       
+        if(auth()->user()->status==0){
+            request()->session()->push('approval', 'yes');
+            return redirect()->route('user.panel');
+        }
         $user=auth()->user();
        $request->validate([
         'title' => 'required|max:255',

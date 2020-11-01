@@ -16,6 +16,23 @@
 </script>
 @endif
 
+@if(session()->pull('updated'))
+
+
+<script>
+    $(document).ready(function(){
+        swal({
+  title: "Succes!",
+  text: "Record Updated Successfuly!",
+  icon: "success",
+  buttons: false,
+  timer: 2000,
+});
+    });
+   
+</script>
+@endif
+
 @if(session()->pull('nopermission'))
 
 
@@ -34,6 +51,22 @@
 @endif
 
 
+@if(session()->pull('approval'))
+
+
+<script>
+    $(document).ready(function(){
+        swal({
+  title: "Ooops..!",
+  text: "Wait For Approvel from Admin!",
+  icon: "error",
+  buttons: false,
+  timer: 2000,
+});
+    });
+   
+</script>
+@endif
 
 @if(session()->pull('failed'))
 

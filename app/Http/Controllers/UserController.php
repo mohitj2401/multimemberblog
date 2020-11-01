@@ -86,6 +86,27 @@ class UserController extends Controller
         $data['active_class']="users";
         return view('user.userlist',$data);
     }
+    public function getUserApprove(Request $request,$id=null)
+    {
+        if(auth()->user()->role!="admin"){
+            $request->session()->push('nopermission', 'yes');
+            return redirect()->route('user.panel');
+        }
+        if($request->isMethod('post')){
+            $record=User::where('id',$request->id)->first();
+            $record->status=$request->status;
+            $record->save();
+           
+            
+        }
+
+        $users=User::all();
+        
+        $data['title']="Approve Users";
+        $data['users']=$users;
+        $data['active_class']="users";
+        return view('user.userallowance',$data);
+    }
 
 
     public function deleteUsers($slug)

@@ -30,6 +30,7 @@ Route::get('/add/dislike/{slug}',[HomeController::class, 'removelike'])->name('a
 
 Route::match(['get','post'],'/user/panel',[UserController::class, 'index'])->name('user.panel');
 Route::match(['get','post'],'/admin/users',[UserController::class, 'getUsers'])->name('admin.view.users');
+Route::match(['get','post'],'/admin/user/approve',[UserController::class, 'getUserApprove'])->name('admin.view.user.approve');
 Route::delete('/admin/delete/user/{slug}',[UserController::class, 'deleteUsers'])->name('admin.delete.users');
 Route::get('/user/post/comments',[UserController::class, 'getComment'])->name('post.comment');
 Route::match(['get','post'],'/user/post/views',[UserController::class, 'getView'])->name('post.view');
