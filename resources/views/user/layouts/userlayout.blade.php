@@ -12,11 +12,11 @@
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-        
+
         @yield('custum-styles')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous">
     </script>
-    
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -26,7 +26,7 @@
                 class="fas fa-bars"></i></button>
        <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div class="input-group">
-               
+
                 <div class="input-group-append">
                 <span style="color: white">{{auth()->user()->name}}</span>
                 </div>
@@ -78,7 +78,7 @@
                                 <a class="nav-link" href="{{route('admin.view.users')}}">User Analytics</a>
                             </nav>
                         </div>
-                       
+
                         @endif
                         <a class="nav-link collapsed @if($active_class=='posts') active @endif" href="#" data-toggle="collapse" data-target="#collapseLayoutsPost"
                             aria-expanded="false" aria-controls="collapseLayouts">
@@ -105,10 +105,10 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('post.comment')}}">Comment</a>
                                 <a class="nav-link" href="{{route('post.view')}}">Views</a>
-                               
+
                             </nav>
                         </div>
-                     
+
 
                         <div class="sb-sidenav-menu-heading">Setting</div>
                         <a class="nav-link collapsed @if($active_class=='settings') active @endif" href="#" data-toggle="collapse" data-target="#collapseLayoutsSetting"
@@ -123,16 +123,16 @@
                                 <a class="nav-link" href="layout-static.html">Profile</a>
                                 <a class="nav-link" href="layout-static.html">Changed Password</a>
                                 <a class="nav-link" href="layout-static.html">Logout</a>
-                               
+
                             </nav>
                         </div>
-                     
 
 
-                        
+
+
                     </div>
                 </div>
-                
+
             </nav>
         </div>
     <div id="layoutSidenav_content">
@@ -145,14 +145,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="{{asset('user-asset/js/scripts.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="{{asset('user-asset/assets/demo/chart-area-demo.js')}}"></script>
-    <script src="{{asset('user-asset/assets/demo/chart-bar-demo.js')}}"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="{{asset('user-asset/assets/demo/datatables-demo.js')}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+
 @yield('custum-scripts')
 
 </body>

@@ -1,92 +1,59 @@
-
 <script>
-
-
-function deleteRecord(slug) {
+    function deleteRecord(slug) {
         swal({
-            title: "Are you sure?",
-  text: "Once deleted, you will not be able to recover this imaginary file!",
-  icon: "warning",
-  buttons: true,
-  dangerMode: true,
-  closeModal:false,
-})
-.then((willDelete) => {
-    
-
-      if (willDelete) {
-
-            var token = '{{ csrf_token()}}';
-
-          route = '{{$route}}'+slug;  
-
-        $.ajax({
-
-            url:route,
-
-            type: 'post',
-
-            data: {_method: 'delete', _token :token},
-
-            success:function(msg){
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                closeModal: false,
+            })
+            .then((willDelete) => {
 
 
+                if (willDelete) {
 
-                result = $.parseJSON(msg);
-                
-                if(typeof result == 'object')
+                    var token = '{{ csrf_token() }}';
 
-                {
+                    route = '{{ $route }}' + slug;
 
-                    status_message = 'deleted';
+                    $.ajax({
 
-                    status_symbox = 'success';
+                        url: route,
 
-                    status_prefix_message = '';
+                        type: 'post',
 
-                    if(!result.status) {
+                        data: {
+                            _method: 'delete',
+                            _token: token
+                        },
 
-                        status_message = 'sorry}';
+                        success: function(msg) {
 
-                        status_prefix_message = 'cannot_delete_this_record_as\n';
 
-                        status_symbox = 'info';
 
-                    }
+                            swal("Deleted'!", "Your record has been deleted", "success", {
+                                button: false,
+                                timer: 2000,
+                            }).then((value) => {
+                                $('#datatable').DataTable().ajax.reload()
+                            });
 
-                    swal(status_message+"!", status_prefix_message+result.message, status_symbox,{
-  button:false,
-  timer: 2000,
-}).then((value) => {
-  location.reload(true);
-});
 
+
+
+
+                        }
+
+                    });
+                } else {
+                    swal("cancelled", "your_record_is_safe :)", "error", {
+                        button: false,
+                        timer: 2000,
+                    });
                 }
+            });
 
-                else {
-                  
-                swal("Deleted'!", "Your record has been deleted", "success",{
-  button:false,
-  timer: 2000,
-}).then((value) => {
-  location.reload(true);
-});
-
-                }
-
-                
-
-            }
-
-        });
-      }else {
-        swal("cancelled", "your_record_is_safe :)", "error",{
-          button:false,
-  timer: 2000,
-        });
-  }
-});
-
-}
+    }
 
 </script>
