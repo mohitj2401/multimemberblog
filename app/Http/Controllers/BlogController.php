@@ -250,10 +250,7 @@ class BlogController extends Controller
     public function getCategory(Request $request)
     {
 
-        if (auth()->user()->role != "admin") {
-            $request->session()->push('nopermission', 'yes');
-            return redirect()->route('user.panel');
-        }
+
 
         $employees = Category::select('id', 'name')->get();
 
@@ -272,10 +269,7 @@ class BlogController extends Controller
     public function getTag(Request $request)
     {
 
-        if (auth()->user()->role != "admin") {
-            $request->session()->push('nopermission', 'yes');
-            return redirect()->route('user.panel');
-        }
+
 
         $employees = Tag::select('id', 'name')->get();
 
