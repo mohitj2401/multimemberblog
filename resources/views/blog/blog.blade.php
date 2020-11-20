@@ -25,7 +25,7 @@
                   </div><a href="{{route('post.show',$blog->slug)}}">
                   <h3 class="h4">{{Str::ucfirst($blog->title)}}</h3></a>
                   <div style="word-break: break-all;">
-                  <p class="text-muted" >{!!str_replace(['<s>','<em>','<strong>'], ' ',Str::of($blog->content)->limit(90))!!}<a href="{{route('post.show',$blog->slug)}}">Read More</a></p>
+                  <p class="text-muted" >{!!str_replace(['<s>','<em>','<strong>'], ' ',Str::of($blog->content)->limit(90))!!}<a href="{{route('post.show',$blog->slug)}}" style="margin-left: 5px">Read More</a></p>
                 </div>
                   <div class="post-footer d-flex align-items-center"><a href="{{route('blog.user.show',$blog->user->slug)}}" class="author d-flex align-items-center flex-wrap">
 
